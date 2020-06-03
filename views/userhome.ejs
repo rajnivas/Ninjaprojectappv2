@@ -1,0 +1,129 @@
+<%- include('partials/header') %>
+
+<!-- Userhome -->
+
+<html>
+
+<body>
+
+<div class="background-logo">
+<!-- <section class="white-section" id="pricing"> -->
+<section class="background-logo" id="pricing">
+
+  <h3>Welcome back <%= userHomeFullname %> </h3>
+  <p>Summary of all your linked accounts</p>
+
+  <div class="row">
+
+    <div class="pricing-column col-lg-4 col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h4>Savings Account</h4>
+        </div>
+        <div class="card-body">
+
+          <p>Your current balance is <%= userHomeSavings%></p>
+          <hr>
+          <p>View mini statement</p>
+          <hr>
+          <p>Money transfer</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-column col-lg-4 col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h4>Credit card Account</h4>
+        </div>
+        <div class="card-body">
+
+          <p>Your outstanding balance is  <%=userHomeCredit%></p>
+          <hr>
+          <p>Pay balance</p>
+          <hr>
+          <p>Check credit score</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-column col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h4>Housing loan Account</h4>
+        </div>
+        <div class="card-body">
+
+          <p>Your loan balance is <%=userHomeHousing%></p>
+          <hr>
+          <p>Partpayment online</p>
+          <hr>
+          <p>Request an Interest rate change</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-column col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h4>Health Insurance</h4>
+        </div>
+        <div class="card-body">
+
+          <p>Your insurance coverage balance is <%=userHomeHelinsurance%></p>
+          <hr>
+          <p>Pay online premium</p>
+          <hr>
+          <p>Customize your coverage</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-column col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h4>Life Insurance</h4>
+        </div>
+        <div class="card-body">
+
+          <p>Your life insurance premium is <%=userHomeLifinsurance%></p>
+          <hr>
+          <p>Amend your Nominees</p>
+          <hr>
+          <p>Amend payment frequency</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-column col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h4>Motor Insurance</h4>
+        </div>
+        <div class="card-body">
+
+          <p>Your motor insurance premium valid until <%=userHomeMotinsurance%></p>
+          <hr>
+          <p>Renew your policy</p>
+          <hr>
+          <p>Add pillion coverage</p>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+</div>
+</body>
+
+</html>
+
+
+<%- include('partials/footer') %>
