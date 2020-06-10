@@ -36,7 +36,7 @@ data:
 
 
     output.logstash:
-      hosts: ['35.246.109.103:5044']
+      hosts: ['10.152.0.2:5044']
 
 ---
 apiVersion: apps/v1
