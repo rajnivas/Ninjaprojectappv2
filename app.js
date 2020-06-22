@@ -73,6 +73,7 @@ app.post("/register",function(req,res){
         if(err){
           console.log(err);
         } else {
+	  console.log("Succesfully registered");
           res.render("successregister");
         }
       })
@@ -97,7 +98,7 @@ app.post("/login",function(req,res){
               if(err){
                 console.log(err);
               }  else if(foundAccount){
-                  console.log("I am at c");
+                  console.log("Succesfully logged on");
                   console.log(foundAccount.username1);
 
                    res.render("userhome",{
