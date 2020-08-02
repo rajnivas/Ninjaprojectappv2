@@ -1,0 +1,24 @@
+input {
+    beats {
+           type => "test"
+           port => "5044"
+          }
+       }
+
+filter {
+         if [stream] == "stderr" and [message] != "reg_username" {
+            drop { }
+        }
+        }
+
+output {
+       stdout {
+          codec => rubydebug
+
+#Sending properly parsed log events to elasticsearch
+ elasticsearch {
+  hosts => "localhost:9200"
+  index => "logstashindex"
+
+ }
+}
