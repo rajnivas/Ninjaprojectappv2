@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-        PROJECT_ID = 'ninja-gcp-277418'
+        PROJECT_ID = 'elk-ninja-gcp'
         CLUSTER_NAME = 'kubecluster'
-        LOCATION = 'europe-west2-c'
+        LOCATION = 'europe-west4-c'
         CREDENTIALS_ID = 'gke'
           }
     stages {
@@ -15,7 +15,7 @@ pipeline {
         stage("Build image") {
             steps {
                 script {
-                    myapp = docker.build("rajni03/ninjaappgcp")
+                    myapp = docker.build("rajni03/ninjaappgcpv2")
                 }
             }
         }
