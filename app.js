@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
 const bcrypt = require("bcryptjs");
+const getIP = require('ipware')().get_ip;
 const saltRounds = 10;
 
 const app = express();
@@ -121,6 +122,13 @@ app.post("/login",function(req,res){
       }
     }
   });
+});
+
+app.use(function(req, res, next) {
+    var ipInfo = getIP(req);
+    console.log(ipInfo);
+    // { clientIp: '127.0.0.1', clientIpRoutable: false }
+    next();
 });
 
 app.listen(3000, function() {

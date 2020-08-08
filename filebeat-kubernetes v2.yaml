@@ -23,7 +23,7 @@ data:
 
 
     output.logstash:
-      hosts: ['35.246.109.103:5044']
+      hosts: ['34.105.234.13:5044']
 ---
 apiVersion: v1
 kind: ConfigMap
