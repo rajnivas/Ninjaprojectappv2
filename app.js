@@ -5,6 +5,7 @@ const ejs = require("ejs");
 const mongoose = require('mongoose');
 const bcrypt = require("bcryptjs");
 const requestIp = require('request-ip');
+const expressPublicIp = require('express-public-ip');
 const saltRounds = 10;
 
 const app = express();
@@ -42,7 +43,10 @@ const User = new mongoose.model("user",userSchema);
 
 const Account = new mongoose.model("account",accountSchema);
 
+app.use(expressPublicIp());
+
 app.get("/",function(req,res){
+  console.log(req.ip);
   res.render("home");
 })
 
@@ -124,13 +128,13 @@ app.post("/login",function(req,res){
   });
 });
 
-app.use(requestIp.mw())
+//app.use(requestIp.mw())
 
-app.use(function(req, res) {
+//app.use(function(req, res) {
     // by default, the ip address will be set on the `clientIp` attribute
-    var ip = req.clientIp;
-    console.log("clientIp : " + ip );
-});
+//    var ip = req.clientIp;
+//    console.log("clientIp : " + ip );
+//});
 
 
 app.listen(3000, function() {
