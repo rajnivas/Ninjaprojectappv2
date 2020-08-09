@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
 const bcrypt = require("bcryptjs");
-const getIP = require('ipware')().get_ip;
+const requestIp = require('request-ip');
 const saltRounds = 10;
 
 const app = express();
@@ -116,7 +116,7 @@ app.post("/login",function(req,res){
            });
          } else {
            console.log("Password not matching");
-           res.render("/login");
+           res.render("login");
          }
          });
       }
@@ -124,12 +124,14 @@ app.post("/login",function(req,res){
   });
 });
 
-app.use(function(req, res, next) {
-    var ipInfo = getIP(req);
-    console.log(ipInfo);
-    // { clientIp: '127.0.0.1', clientIpRoutable: false }
-    next();
+app.use(requestIp.mw())
+
+app.use(function(req, res) {
+    // by default, the ip address will be set on the `clientIp` attribute
+    var ip = req.clientIp;
+    console.log("clientIp : " + ip );
 });
+
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
