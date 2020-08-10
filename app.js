@@ -48,7 +48,7 @@ app.use(expressPublicIp());
 app.get("/",function(req,res){
 //  console.log(req.ip);
 (async () => {
-    console.log(await publicIp.v4());
+    console.log(await publicIp.v4() + ' Succesfully visited');
     //=> '46.5.21.123'
 })();
   res.render("home");
@@ -123,7 +123,7 @@ app.post("/login",function(req,res){
 
            });
          } else {
-           console.log("Password not matching");
+           console.log("Not Success - Password not matching");
            res.render("login");
          }
          });
