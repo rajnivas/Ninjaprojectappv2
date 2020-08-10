@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
 const bcrypt = require("bcryptjs");
-const requestIp = require('request-ip');
+const publicIp = require('public-ip');
 const expressPublicIp = require('express-public-ip');
 const saltRounds = 10;
 
@@ -46,7 +46,11 @@ const Account = new mongoose.model("account",accountSchema);
 app.use(expressPublicIp());
 
 app.get("/",function(req,res){
-  console.log(req.ip);
+//  console.log(req.ip);
+(async () => {
+    console.log(await publicIp.v4());
+    //=> '46.5.21.123'
+})();
   res.render("home");
 })
 
